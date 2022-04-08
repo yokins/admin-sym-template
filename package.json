@@ -25,6 +25,7 @@
         "@vitejs/plugin-legacy": "^1.8.0",
         "@vitejs/plugin-vue": "^2.3.1",
         "naive-ui": "^2.27.0",
+        "pinia-plugin-persistedstate": "^1.5.1",
         "sass": "^1.50.0",
         "unplugin-vue-components": "^0.18.5",
         "vfonts": "^0.0.3",
