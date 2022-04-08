@@ -8,7 +8,6 @@ import content from "@originjs/vite-plugin-content";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
-// import ViteRestart from "vite-plugin-restart"; 暂未使用
 
 export default defineConfig({
     resolve: {
@@ -60,8 +59,5 @@ export default defineConfig({
                 ]
             }
         })
-        // ViteRestart({
-        //     restart: ["vite.config.[jt]s"]
-        // })
     ]
 });
