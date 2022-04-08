@@ -6,6 +6,8 @@ import compress from "vite-plugin-compress";
 import viteImagemin from "vite-plugin-imagemin";
 import content from "@originjs/vite-plugin-content";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
+import Components from "unplugin-vue-components/vite";
+import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 // import ViteRestart from "vite-plugin-restart"; 暂未使用
 
 export default defineConfig({
@@ -22,6 +24,9 @@ export default defineConfig({
             compositionOnly: false,
             runtimeOnly: false,
             include: path.resolve(__dirname, "src/i18n/locales/**")
+        }),
+        Components({
+            resolvers: [NaiveUiResolver()]
         }),
         legacy({
             targets: ["ie >= 11"],

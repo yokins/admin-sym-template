@@ -23,6 +23,7 @@
         "@vitejs/plugin-legacy": "^1.8.0",
         "@vitejs/plugin-vue": "^2.3.1",
         "naive-ui": "^2.27.0",
+        "unplugin-vue-components": "^0.18.5",
         "vfonts": "^0.0.3",
         "vite": "^2.9.1",
         "vite-plugin-compress": "^2.1.1",
