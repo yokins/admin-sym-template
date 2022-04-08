@@ -1,7 +1,9 @@
 import path from "path";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
+import legacy from "@vitejs/plugin-legacy";
 import compress from "vite-plugin-compress";
+import viteImagemin from "vite-plugin-imagemin";
 import content from "@originjs/vite-plugin-content";
 import vueI18n from "@intlify/vite-plugin-vue-i18n";
 // import ViteRestart from "vite-plugin-restart"; 暂未使用
