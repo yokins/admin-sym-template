@@ -9,6 +9,8 @@ import vueI18n from "@intlify/vite-plugin-vue-i18n";
 import Components from "unplugin-vue-components/vite";
 import { NaiveUiResolver } from "unplugin-vue-components/resolvers";
 
+const timestamp = new Date().getTime();
+
 export default defineConfig({
     resolve: {
         alias: {
@@ -59,5 +61,14 @@ export default defineConfig({
                 ]
             }
         })
-    ]
+    ],
+    build: {
+        rollupOptions: {
+            output: {
+                entryFileNames: `assets/[name].${timestamp}.js`,
+                chunkFileNames: `assets/[name].${timestamp}.js`,
+                assetFileNames: `assets/[name].${timestamp}.[ext]`
+            }
+        }
+    }
 });
