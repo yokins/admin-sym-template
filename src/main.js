@@ -1,11 +1,15 @@
 import "vfonts/RobotoSlab.css";
 import "vfonts/FiraCode.css";
-import '@/assets/styles/global.scss';
+import "@/assets/styles/global.scss";
 
 import { createApp } from "vue";
-import App from "./App.vue";
+import bootstrap from "@/configs/bootstrap";
+import App from "@/layouts/App.vue";
 
-const app = createApp(App)
+const app = createApp(App);
 
+const { router } = bootstrap();
+
+app.use(router);
 
 app.mount("#app");
