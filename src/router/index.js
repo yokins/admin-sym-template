@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from "vue-router";
+import { beforeGuards, afterGuards } from "./guards.js";
 import routerMap from "@/router/map/index.js";
 
 /**
@@ -64,14 +65,22 @@ export const generateRouter = routes => {
  * @param {*} router
  * @return {*}
  */
-export const mountBeforeGuards = (router, guards) => {};
+export const mountBeforeGuards = (router, guards) => {
+    guards.forEach(item => {
+        router.beforeEach(item);
+    });
+};
 
 /**
  * @description: 挂载全局后置守卫
  * @param {*} router
  * @return {*}
  */
-export const mountAfterGuards = (router, guards) => {};
+export const mountAfterGuards = (router, guards) => {
+    guards.forEach(item => {
+        router.afterEach(item);
+    });
+};
 
 /**
  * @description: 初始化路由
@@ -81,7 +90,7 @@ export const mountAfterGuards = (router, guards) => {};
 export const initRouter = (params = { routes: [] }) => {
     const routes = generateRoutes(params.routes);
     const router = generateRouter(routes);
-    mountBeforeGuards(router, []);
-    mountAfterGuards(router, []);
+    mountBeforeGuards(router, beforeGuards);
+    mountAfterGuards(router, afterGuards);
     return router;
 };
