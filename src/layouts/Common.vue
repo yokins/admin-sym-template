@@ -1,6 +1,6 @@
 <template>
     <div class="common_layout">
-        <router-view></router-view>
+        <router-view :key="`common.${$route.name}`"></router-view>
     </div>
 </template>
 

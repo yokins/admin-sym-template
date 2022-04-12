@@ -1,6 +1,6 @@
 <template>
     <div class="admin_layout">
-        <router-view></router-view>
+        <router-view :key="`admin.${$route.name}`"></router-view>
     </div>
 </template>
 

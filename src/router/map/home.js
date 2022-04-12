@@ -5,6 +5,7 @@ export default {
     home: {
         path: "/",
         name: "home",
+        redirect: "/dashboard",
         component: admin
     },
     homeDashboard: {

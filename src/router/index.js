@@ -26,9 +26,7 @@ export const generateRoute = item => {
         default:
             return false;
     }
-    return {
-        ...route
-    };
+    return Object.create(route);
 };
 
 /**
