@@ -9,8 +9,6 @@ import App from "@/layouts/App.vue";
 
 const app = createApp(App);
 
-const { router } = bootstrap();
-
-app.use(router);
+bootstrap(app);
 
 app.mount("#app");

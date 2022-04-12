@@ -8,6 +8,7 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "moment": "^2.29.2",
         "nprogress": "^0.2.0",
         "pinia": "^2.0.13",
         "vue": "^3.2.31",
