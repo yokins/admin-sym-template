@@ -8,7 +8,9 @@ import { useGlobalStore } from "@/store/modules/global.js";
 
 export default {
     data() {
-        return {};
+        return {
+            timestamp: null
+        };
     },
     computed: {
         ...mapState(useGlobalStore, ["locale"]),

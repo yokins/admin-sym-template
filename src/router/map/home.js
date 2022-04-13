@@ -4,7 +4,7 @@ const dashboard = () => import("@/pages/home/Dashboard.vue");
 export default {
     home: {
         path: "/",
-        name: "home",
+        name: "home.self",
         redirect: "/dashboard",
         component: admin
     },

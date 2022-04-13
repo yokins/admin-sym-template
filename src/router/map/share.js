@@ -4,7 +4,7 @@ const file = () => import("@/pages/share/File.vue");
 export default {
     share: {
         path: "/share",
-        name: "share",
+        name: "share.self",
         component: common
     },
     shareFile: {

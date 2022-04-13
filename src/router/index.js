@@ -26,7 +26,8 @@ export const generateRoute = item => {
         default:
             return false;
     }
-    return Object.create(route);
+    route.meta = { ...defaultMeta, name: route.name };
+    return route;
 };
 
 /**

@@ -4,7 +4,7 @@ const login = () => import("@/pages/auth/Login.vue");
 export default {
     auth: {
         path: "/auth",
-        name: "auth",
+        name: "auth.self",
         component: common
     },
     authLogin: {
