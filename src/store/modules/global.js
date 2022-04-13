@@ -3,13 +3,10 @@ import logo from "@/assets/images/logo.jpeg";
 
 export const useGlobalStore = defineStore("global", {
     state: () => ({
-        system: {
-            logo
-        },
-        layout: {},
-        theme: {}
+        locale: "zhCN"
     }),
-    actions: {},
+    actions: {
+
+    },
     persist: true
 });
-3;

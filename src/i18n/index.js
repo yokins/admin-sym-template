@@ -27,7 +27,7 @@ const i18n = createI18n({
  */
 export const returnNaiveUiI18n = locale => {
     switch (locale) {
-        case "enUS":
+        case "zhCN":
             return { default: zhCN, date: dateZhCN };
         default:
             return { default: enUS, date: dateEnUS };
