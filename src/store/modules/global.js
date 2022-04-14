@@ -5,6 +5,7 @@ export const useGlobalStore = defineStore("global", {
     state: () => ({
         locale: "zhCN",
         theme: "light",
+        sideWidth: 250,
 
         system: {
             zhCN_name: "后台管理系统",

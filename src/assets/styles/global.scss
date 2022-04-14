@@ -1,3 +1,11 @@
 selector {
     font-family: v-sans, v-mono;
 }
+
+html,
+body,
+#app {
+    min-width: 1200px;
+    height: 100vh;
+    overflow: hidden;
+}
