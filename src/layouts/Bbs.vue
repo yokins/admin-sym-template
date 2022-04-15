@@ -1,13 +1,15 @@
 <template>
-        <n-layout>
-                    <bbs-header></bbs-header>
-
-            <n-layout-content embedded :content-style="contentStyles">
-                平山道
+    <n-layout position="absolute">
+        <n-layout-header bordered>
+            <bbs-header></bbs-header>
+        </n-layout-header>
+        <n-layout embedded position="absolute" style="top: 51px;" :native-scrollbar="false">
+            <n-layout-content embedded content-style="max-width: 1280px;margin: 20px auto 0;">
+                <router-view :key="`bbs.${$route.name}`"></router-view>
             </n-layout-content>
-                    <bbs-footer></bbs-footer>
-
+            <bbs-footer></bbs-footer>
         </n-layout>
+    </n-layout>
 </template>
 
 <script>
@@ -25,19 +27,6 @@ export default {
     },
 
     inject: ["setTheme"],
-
-    data() {
-        return {
-            contentStyles: {
-                minHeight: "calc(100vh - 50px - 30px - 20px - 20px)",
-                maxWidth: "1280px",
-                marginTop: "20px",
-                marginBottom: "20px",
-                marginLeft: "auto",
-                marginRight: "auto"
-            }
-        };
-    },
 
     computed: {
         ...mapState(useGlobalStore, ["sideWidth"])

@@ -1,9 +1,8 @@
 <template>
-    <n-layout-footer class="layouts_bbs_footer">
+    <n-layout-footer position="absolute" class="layouts_bbs_footer">
         &copy; 2022-2023 yokins.shi@icloud.com
     </n-layout-footer>
 </template>
-
 
 <style lang="scss" scoped>
 .layouts_bbs_footer {
