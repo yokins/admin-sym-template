@@ -8,8 +8,8 @@ export const useGlobalStore = defineStore("global", {
         sideWidth: 250,
 
         system: {
-            zhCN_name: "后台管理系统",
-            enUS_name: "BMS"
+            zhCN_name: "释空文档",
+            enUS_name: "Senkoo Wiki"
         }
     }),
     actions: {

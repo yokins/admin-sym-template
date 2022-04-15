@@ -1,16 +1,15 @@
-const admin = () => import("@/layouts/Admin.vue");
-const dashboard = () => import("@/pages/home/Dashboard.vue");
+const bbs = () => import("@/layouts/Bbs.vue");
+const home = () => import("@/pages/home.vue");
 
 export default {
-    home: {
+    root: {
         path: "/",
-        name: "home.self",
-        redirect: "/dashboard",
-        component: admin
+        name: "root.self",
+        component: bbs
     },
-    homeDashboard: {
-        path: "dashboard",
-        name: "home.dashboard",
-        component: dashboard
+    rootHome: {
+        path: "",
+        name: "root.home",
+        component: home
     }
 };

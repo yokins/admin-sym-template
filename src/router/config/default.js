@@ -1,7 +1,7 @@
 export default [
     {
-        route: "home",
-        children: ["homeDashboard"]
+        route: "root",
+        children: ["rootHome"]
     },
     {
         route: "auth",
