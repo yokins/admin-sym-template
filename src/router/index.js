@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import { beforeGuards, afterGuards } from "./guards.js";
 import routerMap from "@/router/map/index.js";
 
@@ -54,7 +54,7 @@ export const generateRoutes = list => {
  */
 export const generateRouter = routes => {
     return createRouter({
-        history: createWebHashHistory(),
+        history: createWebHistory(),
         routes: routes
     });
 };
