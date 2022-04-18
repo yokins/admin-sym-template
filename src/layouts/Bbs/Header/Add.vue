@@ -1,6 +1,6 @@
 <template>
     <div class="layouts_bbs_header_add">
-        <n-icon size="20">
+        <n-icon size="20" @click="onClickAdd">
             <AddOutline></AddOutline>
         </n-icon>
     </div>
@@ -11,6 +11,12 @@ import { AddOutline } from "@vicons/ionicons5";
 export default {
     components: {
         AddOutline
+    },
+
+    methods: {
+        onClickAdd() {
+            this.$router.push({ name: "articles.new" });
+        }
     }
 };
 </script>

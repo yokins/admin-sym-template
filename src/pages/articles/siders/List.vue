@@ -11,7 +11,7 @@
             </n-button>
         </n-card>
 
-        <n-card title="活跃会员">
+        <n-card title="活跃人员">
         </n-card>
 
         <n-card title="统计信息">

@@ -1,20 +1,26 @@
 <template>
     <main-page>
-        <n-card title="卡片插槽示例">
-            <template #header-extra> #header-extra </template>
+        <n-card :title="$t(`router.${$route.name}`)">
+            <template #header-extra>
+                <n-button type="error">
+                    <n-icon>
+                        <TrashOutline></TrashOutline>
+                    </n-icon>
+                    清空
+                </n-button>
+            </template>
             卡片内容
-            <template #footer> #footer </template>
-            <template #action> #action </template>
         </n-card>
     </main-page>
 </template>
 
 <script>
 import MainPage from "@/components/pages/MainPage.vue";
-
+import { TrashOutline } from '@vicons/ionicons5'
 export default {
     components: {
-        MainPage
+        MainPage,
+        TrashOutline
     }
 };
 </script>

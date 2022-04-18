@@ -1,7 +1,8 @@
 const bbs = () => import("@/layouts/Bbs.vue");
 const index = () => import("@/pages/articles/Index.vue");
-const list = () => import('@/pages/articles/List.vue');
+const list = () => import("@/pages/articles/List.vue");
 const listSider = () => import("@/pages/articles/siders/List.vue");
+const newForm = () => import("@/pages/articles/Form.vue");
 
 export default {
     articles: {
@@ -12,15 +13,20 @@ export default {
     articlesIndex: {
         path: "",
         name: "articles.index",
-        redirect: "/articles/kinds/default",
+        redirect: "/articles/list/default",
         component: index
     },
     articlesList: {
-        path: "kinds/:kind",
+        path: "list/:kind",
         name: "articles.list",
         components: {
             default: list,
             sider: listSider
         }
+    },
+    articlesNewForm: {
+        path: "new",
+        name: "articles.new",
+        component: newForm
     }
 };
