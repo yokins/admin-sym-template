@@ -1,5 +1,5 @@
 <template>
-    <n-card :bordered="false"> 卡片内容 </n-card>
+    <n-card> 卡片内容 </n-card>
 </template>
 
 <script>

@@ -14,10 +14,10 @@
             content-style="max-width: 1280px;margin: 20px auto;"
         >
             <n-grid x-gap="20" cols="24" item-responsive responsive="screen">
-                <n-grid-item span="24 m:19">
+                <n-grid-item span="24 m:18">
                     <router-view :key="$route.params.kind"></router-view>
                 </n-grid-item>
-                <n-grid-item span="24 m:5">
+                <n-grid-item span="24 m:6">
                     <router-view name="sider"></router-view>
                 </n-grid-item>
             </n-grid>
