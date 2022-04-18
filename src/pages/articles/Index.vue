@@ -9,8 +9,11 @@
                 />
             </div>
         </n-layout-header>
-        <n-layout-content embedded content-style="max-width: 1280px;margin: 20px auto;">
-            <n-grid cols="24" item-responsive responsive="screen">
+        <n-layout-content
+            embedded
+            content-style="max-width: 1280px;margin: 20px auto;"
+        >
+            <n-grid x-gap="20" cols="24" item-responsive responsive="screen">
                 <n-grid-item span="24 m:19">
                     <router-view :key="$route.params.kind"></router-view>
                 </n-grid-item>
@@ -23,7 +26,7 @@
 </template>
 
 <script>
-import { renderIcon } from "@/utils/vue.render.js";
+import { renderIcon, renderRouterLink } from "@/utils/vue.render.js";
 import { Flame, RibbonOutline } from "@vicons/ionicons5";
 
 export default {
@@ -37,20 +40,36 @@ export default {
         menuOptions() {
             const options = [
                 {
-                    label: this.$t("articles.kind.default"),
+                    label: renderRouterLink(
+                        "articles.list",
+                        { kind: "default" },
+                        this.$t("articles.kind.default")
+                    ),
                     key: "default"
                 },
                 {
-                    label: this.$t("articles.kind.new"),
+                    label: renderRouterLink(
+                        "articles.list",
+                        { kind: "new" },
+                        this.$t("articles.kind.new")
+                    ),
                     key: "new"
                 },
                 {
-                    label: this.$t("articles.kind.cream"),
+                    label: renderRouterLink(
+                        "articles.list",
+                        { kind: "cream" },
+                        this.$t("articles.kind.cream")
+                    ),
                     key: "cream",
                     icon: renderIcon(RibbonOutline)
                 },
                 {
-                    label: this.$t("articles.kind.viewed"),
+                    label: renderRouterLink(
+                        "articles.list",
+                        { kind: "viewed" },
+                        this.$t("articles.kind.viewed")
+                    ),
                     key: "viewed",
                     icon: renderIcon(Flame)
                 }

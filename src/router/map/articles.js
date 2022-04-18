@@ -1,6 +1,7 @@
 const bbs = () => import("@/layouts/Bbs.vue");
 const index = () => import("@/pages/articles/Index.vue");
 const list = () => import('@/pages/articles/List.vue');
+const listSider = () => import("@/pages/articles/siders/List.vue");
 
 export default {
     articles: {
@@ -17,6 +18,9 @@ export default {
     articlesList: {
         path: "kinds/:kind",
         name: "articles.list",
-        component: list
+        components: {
+            default: list,
+            sider: listSider
+        }
     }
 };

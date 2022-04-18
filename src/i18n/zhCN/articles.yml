@@ -3,3 +3,6 @@ kind:
     new: 新帖
     cream: 精华帖
     viewed: 最多浏览
+
+actions:
+    new: 发布文章
