@@ -18,5 +18,9 @@ export default [
                 ]
             }
         ]
+    },
+    {
+        route: "notices",
+        children: ["noticesList"]
     }
 ];

@@ -1,5 +1,5 @@
 <template>
-    <n-layout>
+    <!-- <n-layout>
         <n-layout-header>
             <div class="articles_kinds">
                 <n-menu
@@ -22,14 +22,42 @@
                 </n-grid-item>
             </n-grid>
         </n-layout-content>
-    </n-layout>
+    </n-layout> -->
+
+    <main-page>
+        <template #header>
+            <n-layout-header>
+                <div class="articles_kinds">
+                    <n-menu
+                        :value="$route.params.kind"
+                        mode="horizontal"
+                        :options="menuOptions"
+                    />
+                </div>
+            </n-layout-header>
+        </template>
+
+        <n-grid x-gap="20" cols="24" item-responsive responsive="screen">
+            <n-grid-item span="24 m:18">
+                <router-view :key="$route.params.kind"></router-view>
+            </n-grid-item>
+            <n-grid-item span="24 m:6">
+                <router-view name="sider"></router-view>
+            </n-grid-item>
+        </n-grid>
+    </main-page>
 </template>
 
 <script>
 import { renderIcon, renderRouterLink } from "@/utils/vue.render.js";
 import { Flame, RibbonOutline } from "@vicons/ionicons5";
+import MainPage from "@/components/pages/MainPage.vue";
 
 export default {
+    components: {
+        MainPage
+    },
+
     data() {
         return {
             activeKey: "default"

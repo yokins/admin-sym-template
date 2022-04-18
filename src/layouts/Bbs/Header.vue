@@ -1,7 +1,7 @@
 <template>
     <n-layout-header bordered>
         <div class="layouts_bbs_header">
-            <div class="layouts_bbs_header_left">
+            <div class="layouts_bbs_header_left" @click="onClickRoot">
                 <b :style="{ color: themeVars.primaryColor }">Senkoo </b>
                 wiki
             </div>
@@ -37,6 +37,12 @@ export default {
         return {
             themeVars: useThemeVars()
         };
+    },
+
+    methods: {
+        onClickRoot() {
+            this.$router.push({ name: 'root.self' })
+        }
     }
 };
 </script>
@@ -54,6 +60,7 @@ export default {
     .layouts_bbs_header_left {
         font-size: 18px;
         font-weight: 600;
+        cursor: pointer;
     }
 }
 </style>

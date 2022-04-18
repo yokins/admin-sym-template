@@ -6,3 +6,7 @@ articles:
   self: 文章
   index: 主题
   list: 列表
+
+notices:
+  self: 通知
+  list: 所有通知
