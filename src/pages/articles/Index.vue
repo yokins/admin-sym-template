@@ -1,18 +1,18 @@
 <template>
-    <n-card :bordered="false" :header-style="{ padding: 0 }">
-        <template #header>
-            <n-menu
-                v-model:value="activeKey"
-                mode="horizontal"
-                :options="menuOptions"
-            />
-        </template>
-    </n-card>
+    <n-layout-header>
+        <div class="articles_kinds">
+                    <n-menu
+            v-model:value="activeKey"
+            mode="horizontal"
+            :options="menuOptions"
+        />
+        </div>
+    </n-layout-header>
 </template>
 
 <script>
-import { renderIcon } from '@/utils/vue.render.js'
-import { Flame, RibbonOutline } from '@vicons/ionicons5'
+import { renderIcon } from "@/utils/vue.render.js";
+import { Flame, RibbonOutline } from "@vicons/ionicons5";
 
 export default {
     data() {
@@ -26,11 +26,11 @@ export default {
             const options = [
                 {
                     label: this.$t("articles.kind.default"),
-                    key: "default",
+                    key: "default"
                 },
                 {
                     label: this.$t("articles.kind.new"),
-                    key: "new",
+                    key: "new"
                 },
                 {
                     label: this.$t("articles.kind.cream"),
@@ -48,3 +48,10 @@ export default {
     }
 };
 </script>
+
+<style lang="scss" scoped>
+.articles_kinds {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+</style>

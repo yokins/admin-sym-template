@@ -25,7 +25,8 @@ export default {
 
     provide() {
         return {
-            setTheme: this.setTheme
+            setTheme: this.setTheme,
+            setTitle: this.setTitle
         };
     },
 
@@ -62,10 +63,12 @@ export default {
          * @param {*}
          * @return {*}
          */
-        setTitle() {
+        setTitle(title) {
             this.$nextTick(() => {
+                let tabTitle = this.$t(`router.${this.$route.name}`);
+                if(title) tabTitle = title;
                 document.title =
-                    this.$t(`router.${this.$route.name}`) +
+                    tabTitle +
                     " | " +
                     this.system[`${this.locale}_name`];
             });
