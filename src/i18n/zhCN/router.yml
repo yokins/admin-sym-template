@@ -5,3 +5,4 @@ root:
 articles:
   self: 文章
   index: 主题
+  list: 列表

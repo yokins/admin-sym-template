@@ -8,6 +8,15 @@ export default [
     },
     {
         route: "articles",
-        children: ["articlesIndex"]
+        children: [
+            {
+                route: "articlesIndex",
+                children: [
+                    {
+                        route: "articlesList"
+                    }
+                ]
+            }
+        ]
     }
 ];

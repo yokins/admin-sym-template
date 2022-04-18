@@ -65,12 +65,14 @@ export default {
          */
         setTitle(title) {
             this.$nextTick(() => {
-                let tabTitle = this.$t(`router.${this.$route.name}`);
-                if(title) tabTitle = title;
+                let tabTitle = "";
+                if (title) {
+                    tabTitle = title;
+                } else {
+                    tabTitle = this.$t(`router.${this.$route.name}`);
+                }
                 document.title =
-                    tabTitle +
-                    " | " +
-                    this.system[`${this.locale}_name`];
+                    tabTitle + " | " + this.system[`${this.locale}_name`];
             });
         },
         /**

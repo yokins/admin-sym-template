@@ -11,10 +11,11 @@ export default {
     articlesIndex: {
         path: "",
         name: "articles.index",
+        redirect: "/articles/kinds/default",
         component: index
     },
     articlesList: {
-        path: ":kind",
+        path: "kinds/:kind",
         name: "articles.list",
         component: list
     }
