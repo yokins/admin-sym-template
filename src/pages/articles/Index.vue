@@ -3,7 +3,7 @@
         <n-layout-header>
             <div class="articles_kinds">
                 <n-menu
-                    v-model:value="activeKey"
+                    :value="$route.params.kind"
                     mode="horizontal"
                     :options="menuOptions"
                 />
