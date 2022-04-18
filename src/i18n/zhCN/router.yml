@@ -1,3 +1,7 @@
 root:
   self: /
   home: 首页
+
+articles:
+  self: 文章
+  index: 主题

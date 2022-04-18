@@ -4,7 +4,7 @@
             <bbs-header></bbs-header>
         </n-layout-header>
         <n-layout embedded position="absolute" style="top: 51px;" :native-scrollbar="false">
-            <n-layout-content embedded content-style="max-width: 1280px;margin: 20px auto 0;">
+            <n-layout-content embedded content-style="max-width: 1280px;margin: 0 auto 0;">
                 <router-view :key="`bbs.${$route.name}`"></router-view>
             </n-layout-content>
             <bbs-footer></bbs-footer>
