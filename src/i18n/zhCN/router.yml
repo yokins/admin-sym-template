@@ -6,6 +6,8 @@ articles:
   self: 文章
   index: 主题
   list: 列表
+  new: 发布文章
+  edit: 编辑文章
 
 notices:
   self: 通知

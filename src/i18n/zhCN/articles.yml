@@ -1,7 +1,7 @@
 kind:
     default: 默认
-    new: 新帖
-    cream: 精华帖
+    new: 新发
+    cream: 精华
     viewed: 最多浏览
 
 actions:
