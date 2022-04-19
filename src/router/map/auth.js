@@ -1,11 +1,11 @@
-const common = () => import("@/layouts/Common.vue");
+const bbs = () => import("@/layouts/Bbs.vue");
 const login = () => import("@/pages/auth/Login.vue");
 
 export default {
     auth: {
         path: "/auth",
         name: "auth.self",
-        component: common
+        component: bbs
     },
     authLogin: {
         path: "login",

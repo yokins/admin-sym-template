@@ -7,7 +7,9 @@ import routerMap from "@/router/map/index.js";
  * @param {*}
  * @return {*}
  */
-export const defaultMeta = {};
+export const defaultMeta = {
+    needLogin: false
+};
 
 /**
  * @description: 创建单个页面路由的数据结构
@@ -26,7 +28,7 @@ export const generateRoute = item => {
         default:
             return false;
     }
-    route.meta = { ...defaultMeta, name: route.name };
+    route.meta = { ...defaultMeta, name: route.name, ...route.meta };
     return route;
 };
 

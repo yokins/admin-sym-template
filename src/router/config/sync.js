@@ -1,5 +1,3 @@
-import routerConfigDefault from './default';
+import routerConfigDefault from "./default";
 
-export default [
-    ...routerConfigDefault,
-];
+export default [...routerConfigDefault];

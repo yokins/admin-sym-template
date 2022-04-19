@@ -1,7 +1,7 @@
 <template>
     <n-space vertical>
         <n-card>
-            <n-button type="primary" block>
+            <n-button type="primary" block @click="onClickAdd">
                 <template #icon>
                     <n-icon>
                         <TextEditStyle20Filled />
@@ -11,8 +11,7 @@
             </n-button>
         </n-card>
 
-        <n-card title="活跃人员">
-        </n-card>
+        <n-card title="活跃人员"> </n-card>
 
         <n-card title="统计信息">
             会员数：1000 个
@@ -33,6 +32,12 @@ export default {
 
     data() {
         return {};
+    },
+
+    methods: {
+        onClickAdd() {
+            this.$router.push({ name: "articles.new" });
+        }
     }
 };
 </script>

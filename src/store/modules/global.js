@@ -10,7 +10,9 @@ export const useGlobalStore = defineStore("global", {
         system: {
             zhCN_name: "释空文档",
             enUS_name: "Senkoo Wiki"
-        }
+        },
+
+        user: null
     }),
     actions: {
         changeTheme(theme) {

@@ -27,6 +27,9 @@ export default {
     articlesNewForm: {
         path: "new",
         name: "articles.new",
+        meta: {
+            needLogin: true
+        },
         component: newForm
     }
 };

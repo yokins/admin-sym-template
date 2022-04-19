@@ -4,9 +4,20 @@
 
         <n-layout-content
             embedded
-            content-style="max-width: 1280px;margin: 20px auto;"
+            :content-style="`max-width: ${maxWidth};margin: 20px auto;`"
         >
             <slot></slot>
         </n-layout-content>
     </n-layout>
 </template>
+
+<script>
+export default {
+    props: {
+        maxWidth: {
+            type: String,
+            default: "1280px"
+        }
+    }
+};
+</script>

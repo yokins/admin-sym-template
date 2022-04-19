@@ -12,3 +12,6 @@ articles:
 notices:
   self: 通知
   list: 所有通知
+
+auth:
+  login: 登录
