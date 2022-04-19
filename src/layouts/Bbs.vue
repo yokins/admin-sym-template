@@ -11,8 +11,8 @@
         >
             <n-layout-content embedded>
                 <router-view :key="`bbs.${$route.name}`"></router-view>
+                <bbs-footer></bbs-footer>
             </n-layout-content>
-            <bbs-footer></bbs-footer>
         </n-layout>
     </n-layout>
 </template>
