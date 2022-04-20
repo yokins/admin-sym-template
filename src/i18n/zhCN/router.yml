@@ -8,6 +8,7 @@ articles:
   list: 列表
   new: 发布文章
   edit: 编辑文章
+  detail: 文章内容
 
 notices:
   self: 通知

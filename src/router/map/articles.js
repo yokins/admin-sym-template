@@ -3,6 +3,7 @@ const index = () => import("@/pages/articles/Index.vue");
 const list = () => import("@/pages/articles/List.vue");
 const listSider = () => import("@/pages/articles/siders/List.vue");
 const newForm = () => import("@/pages/articles/Form.vue");
+const detail = () => import("@/pages/articles/Detail.vue");
 
 export default {
     articles: {
@@ -31,5 +32,10 @@ export default {
             needLogin: true
         },
         component: newForm
+    },
+    articleDetail: {
+        path: "detail/:id",
+        name: "articles.detail",
+        component: detail
     }
 };

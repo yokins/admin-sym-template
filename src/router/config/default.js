@@ -17,7 +17,8 @@ export default [
                     }
                 ]
             },
-            "articlesNewForm"
+            "articlesNewForm",
+            "articleDetail"
         ]
     },
     {

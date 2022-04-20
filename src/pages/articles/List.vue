@@ -10,7 +10,11 @@
                     />
                 </template>
                 <n-thing>
-                    <template #header> Rails 7 正式发布（译文） </template>
+                    <template #header>
+                        <n-text @click="onClickToDetail(1)">
+                            Rails 7 正式发布（译文）
+                        </n-text>
+                    </template>
 
                     <template #header-extra>
                         <n-tag type="success" round> 6 </n-tag>
@@ -50,6 +54,15 @@ export default {
 
     created() {
         this.setTitle(this.$t(`articles.kind.${this.$route.params.kind}`));
+    },
+
+    methods: {
+        onClickToDetail(id) {
+            this.$router.push({
+                name: "articles.detail",
+                params: { id: 1 }
+            });
+        }
     }
 };
 </script>
