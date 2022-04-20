@@ -31,6 +31,7 @@
             </n-list-item>
         </n-list>
         <n-pagination
+            style="margin-bottom: 20px;"
             v-model:page="page"
             v-model:page-size="pageSize"
             :page-count="100"
