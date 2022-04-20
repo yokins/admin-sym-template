@@ -15,34 +15,17 @@
             <div class="article_content" v-html="html"></div>
         </n-card>
 
-        <n-card>
-            <n-list>
-                <template #header> 评论列表： </template>
-                <n-list-item>
-                    <template #prefix>
-                        <n-avatar
-                            round
-                            size="large"
-                            src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-                        />
-                    </template>
-                    <n-thing title="Thing">
-                        <template #header-extra>
-                            <n-space>
-                                <n-button>回复</n-button>
-                                <n-button>点赞</n-button>
-                            </n-space>
-                        </template>
-                    </n-thing>
-                </n-list-item>
-            </n-list>
-        </n-card>
+        <comment-list></comment-list>
     </n-space>
 </template>
 
 <script>
+import CommentList from '@/components/comment/List.vue';
+
 export default {
-    components: {},
+    components: {
+        CommentList
+    },
 
     data() {
         return {
