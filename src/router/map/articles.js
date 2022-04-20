@@ -4,6 +4,7 @@ const list = () => import("@/pages/articles/List.vue");
 const listSider = () => import("@/pages/articles/siders/List.vue");
 const newForm = () => import("@/pages/articles/Form.vue");
 const detail = () => import("@/pages/articles/Detail.vue");
+const detailSider = () => import("@/pages/articles/siders/Detail.vue");
 
 export default {
     articles: {
@@ -36,6 +37,9 @@ export default {
     articleDetail: {
         path: "detail/:id",
         name: "articles.detail",
-        component: detail
+        components: {
+            default: detail,
+            sider: detailSider
+        }
     }
 };

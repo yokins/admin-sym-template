@@ -11,7 +11,7 @@
                 </template>
                 <n-thing>
                     <template #header>
-                        <n-text @click="onClickToDetail(1)">
+                        <n-text style="cursor: pointer;"  @click="onClickToDetail(1)">
                             Rails 7 正式发布（译文）
                         </n-text>
                     </template>

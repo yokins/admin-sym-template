@@ -11,14 +11,9 @@ export default [
         children: [
             {
                 route: "articlesIndex",
-                children: [
-                    {
-                        route: "articlesList"
-                    }
-                ]
+                children: ["articlesList", "articleDetail"]
             },
-            "articlesNewForm",
-            "articleDetail"
+            "articlesNewForm"
         ]
     },
     {
