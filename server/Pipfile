@@ -7,6 +7,8 @@ name = "pypi"
 sanic = "*"
 aiohttp = "*"
 autopep8 = "*"
+sqlalchemy = "*"
+aiomysql = "*"
 
 [dev-packages]
 
