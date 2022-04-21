@@ -4,9 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-sanic = "*"
-aiohttp = "*"
-autopep8 = "*"
+sanic-openapi = "*"
 
 [dev-packages]
 
