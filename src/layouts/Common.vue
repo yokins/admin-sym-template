@@ -5,7 +5,12 @@
 </template>
 
 <script>
+import { useMessage } from "naive-ui";
+
 export default {
-    name: "CommonLayout"
+    name: "CommonLayout",
+    created() {
+        window.$message = useMessage();
+    },
 };
 </script>

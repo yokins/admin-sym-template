@@ -22,6 +22,7 @@
                         attr-type="button"
                         type="primary"
                         @click="onClickSubmit"
+                        :loading="loading"
                     >
                         登录
                     </n-button>
@@ -33,7 +34,8 @@
 
 <script>
 import MainPage from "@/components/pages/MainPage.vue";
-import { useMessage } from "naive-ui";
+import { useGlobalStore } from "@/store/modules/global.js";
+import { mapActions } from "pinia";
 
 export default {
     components: {
@@ -42,7 +44,6 @@ export default {
 
     data() {
         return {
-            message: useMessage(),
             rules: {
                 account: [
                     {
@@ -62,15 +63,26 @@ export default {
             form: {
                 account: "",
                 password: ""
-            }
+            },
+            loading: false
         };
     },
 
     methods: {
+        ...mapActions(useGlobalStore, ["setUser"]),
         onClickSubmit(e) {
             e.preventDefault();
-            this.$refs.form.validate(errors => {
+            this.$refs.form.validate(async errors => {
                 if (!errors) {
+                    this.loading = true;
+                    const res = await this.$api.auth
+                        .login(this.form)
+                        .catch(() => {});
+                    if (!res) return false;
+                    this.setUser(res.data.user, res.data.token);
+                    this.$router.replace({ name: "root.self" });
+                    this.loading = false;
+                    window.$message.success("登录成功")
                 }
             });
         }

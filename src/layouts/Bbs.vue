@@ -9,9 +9,7 @@
             style="top: 51px"
             :native-scrollbar="false"
         >
-            <n-layout-content
-                embedded
-            >
+            <n-layout-content embedded>
                 <router-view :key="`bbs.${$route.name}`"></router-view>
             </n-layout-content>
             <bbs-footer></bbs-footer>
@@ -24,9 +22,14 @@ import { useGlobalStore } from "@/store/modules/global.js";
 import { mapState } from "pinia";
 import BbsFooter from "./Bbs/Footer.vue";
 import BbsHeader from "./Bbs/Header.vue";
+import { useMessage } from "naive-ui";
 
 export default {
     name: "BbsLayout",
+
+    created() {
+        window.$message = useMessage();
+    },
 
     components: {
         BbsHeader,

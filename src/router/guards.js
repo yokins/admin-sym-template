@@ -1,10 +1,8 @@
 import NProgress from "nprogress";
+import { ls } from "@/utils/lib.js";
 
-const globalLocalStorage = localStorage.getItem("global");
-const global =
-    globalLocalStorage && typeof globalLocalStorage == "object"
-        ? JSON.parse(globalLocalStorage)
-        : {};
+
+const global = ls.get("global");
 
 /**
  * @description: 进度条开始
@@ -36,7 +34,7 @@ const checkLogin = (to, from, next) => {
     if (to.meta?.needLogin && !global?.user) {
         next({ name: "auth.login" });
     } else if (to.name == "auth.login" && global?.user) {
-        return false;
+        next({ name: 'root.self' })
     } else {
         next();
     }

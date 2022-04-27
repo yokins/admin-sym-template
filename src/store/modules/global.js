@@ -17,6 +17,9 @@ export const useGlobalStore = defineStore("global", {
     actions: {
         changeTheme(theme) {
             this.theme = theme;
+        },
+        setUser(user, token) {
+            this.user = { ...user, token };
         }
     },
     persist: true

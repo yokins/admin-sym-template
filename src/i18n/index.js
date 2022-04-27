@@ -2,13 +2,10 @@ import { createI18n } from "vue-i18n";
 import MessageZhCN from "./zhCN/index.js";
 import MessageEnUS from "./enUS/index.js";
 import { zhCN, dateZhCN, enUS, dateEnUS } from "naive-ui";
+import { ls } from '@/utils/lib.js';
 import "moment/dist/locale/zh-cn";
 
-const globalLocalStorage = localStorage.getItem("global");
-const globalSetting =
-    globalLocalStorage && typeof globalLocalStorage == "object"
-        ? JSON.parse(globalLocalStorage)
-        : {};
+const globalSetting = ls.get('global');
 
 const i18n = createI18n({
     // 这里不能拿pinia里的数据只能去 localStorage 里边拿
