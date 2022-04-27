@@ -11,9 +11,9 @@
             </n-button>
         </n-card>
 
-        <n-card title="活跃人员">
+        <!-- <n-card title="活跃人员">
             <n-avatar-group :options="userOptions" :size="40" :max="3" />
-        </n-card>
+        </n-card> -->
 
         <n-card title="统计信息">
             会员数：1000 个
