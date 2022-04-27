@@ -1,4 +1,7 @@
 import axios from "axios";
+import { ls } from "@/utils/lib.js";
+
+const global = ls.get("global");
 
 const showMessage = msg => {
     window.$message.error(msg);
@@ -14,6 +17,9 @@ const http = axios.create(baseConfig);
 // 添加请求拦截器
 http.interceptors.request.use(
     function (config) {
+        if (global?.user?.token)
+            config.headers["Authorization"] = global?.user?.token;
+
         // 在发送请求之前做些什么
         return config;
     },

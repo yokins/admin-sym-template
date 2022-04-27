@@ -1,15 +1,11 @@
 <template>
     <main-page>
         <n-card :title="$t(`articles.actions.new`)">
-            <!-- <template #header-extra>
-                <n-button type="primary"> 立即发布 </n-button>
-            </template> -->
-
             <n-space vertical>
                 <n-input-group>
                     <n-select
                         :style="{ width: '30%' }"
-                        :options="selectOptions"
+                        :options="topics"
                         placeholder="请选择文章类型"
                     />
                     <n-input
@@ -35,6 +31,7 @@ export default {
         MainPage,
         WangEditor
     },
+
     data() {
         return {
             selectOptions: [
@@ -42,8 +39,30 @@ export default {
                     label: "option",
                     value: "option"
                 }
-            ]
+            ],
+
+            topics: []
         };
+    },
+
+    async created() {
+        await this.loadTopics();
+    },
+
+    methods: {
+        /**
+         * @description: 获取文章
+         * @param {*}
+         * @return {*}
+         */
+        async loadTopics() {
+            const res = await this.$api.topics.list().catch(() => {});
+            this.topics = res?.data?.topics || [];
+            this.topics = this.topics.map(item => ({
+                label: item.title,
+                value: item.id
+            }));
+        }
     }
 };
 </script>
