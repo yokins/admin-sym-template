@@ -1,5 +1,8 @@
 <template>
-    <n-card content-style="padding-top: 0;padding-bottom: 0px;">
+    <n-card
+        v-if="list.length > 0"
+        content-style="padding-top: 0;padding-bottom: 0px;"
+    >
         <n-list>
             <n-list-item v-for="item in list" :key="item">
                 <template #prefix>
@@ -11,7 +14,10 @@
                 </template>
                 <n-thing>
                     <template #header>
-                        <n-text style="cursor: pointer;"  @click="onClickToDetail(1)">
+                        <n-text
+                            style="cursor: pointer"
+                            @click="onClickToDetail(1)"
+                        >
                             Rails 7 正式发布（译文）
                         </n-text>
                     </template>
@@ -31,7 +37,7 @@
             </n-list-item>
         </n-list>
         <n-pagination
-            style="margin-bottom: 20px;"
+            style="margin-bottom: 20px"
             v-model:page="page"
             v-model:page-size="pageSize"
             :page-count="100"
@@ -39,10 +45,18 @@
             :page-sizes="[10, 20, 30, 40]"
         />
     </n-card>
+
+    <empty v-else></empty>
 </template>
 
 <script>
+import Empty from '@/components/pages/Empty.vue';
+
 export default {
+    components: {
+        Empty
+    },
+
     inject: ["setTitle"],
 
     data() {
@@ -53,11 +67,18 @@ export default {
         };
     },
 
-    created() {
+    async created() {
         this.setTitle(this.$t(`articles.kind.${this.$route.params.kind}`));
+        await this.loadData();
     },
 
     methods: {
+        async loadData() {
+            const res = await this.$api.articles.list().catch(() => {});
+            if (!res) return false;
+            this.list = res.data.articles;
+        },
+
         onClickToDetail(id) {
             this.$router.push({
                 name: "articles.detail",
