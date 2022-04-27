@@ -16,11 +16,11 @@
         </n-card> -->
 
         <n-card title="统计信息">
-            会员数：1000 个
+            会员数：{{ counts.user_count }} 个
             <n-divider />
-            文章数：1234 篇
+            文章数：{{ counts.article_count }} 篇
             <n-divider />
-            评论数：3429 条
+            评论数：{{ counts.comment_count }} 条
         </n-card>
     </n-space>
 </template>
@@ -34,34 +34,48 @@ export default {
 
     data() {
         return {
-            userOptions: [
-                {
-                    name: "张三",
-                    src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-                },
-                {
-                    name: "李四",
-                    src: "https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-                },
-                {
-                    name: "王五",
-                    src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-                },
-                {
-                    name: "赵六",
-                    src: "https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
-                },
-                {
-                    name: "七仔",
-                    src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
-                }
-            ]
+            // userOptions: [
+            //     {
+            //         name: "张三",
+            //         src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+            //     },
+            //     {
+            //         name: "李四",
+            //         src: "https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+            //     },
+            //     {
+            //         name: "王五",
+            //         src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+            //     },
+            //     {
+            //         name: "赵六",
+            //         src: "https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+            //     },
+            //     {
+            //         name: "七仔",
+            //         src: "https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+            //     }
+            // ]
+            counts: {
+                user_count: 0,
+                article_count: 0,
+                comment_count: 0
+            }
         };
+    },
+
+    async created() {
+        await this.getCounts();
     },
 
     methods: {
         onClickAdd() {
             this.$router.push({ name: "articles.new" });
+        },
+        async getCounts() {
+            const res = await this.$api.statistics.home().catch(() => {});
+            if (!res) return false;
+            this.counts = res.data;
         }
     }
 };
