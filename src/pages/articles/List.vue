@@ -9,7 +9,7 @@
                     <n-avatar
                         round
                         size="large"
-                        src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
+                        :src="item?.author?.avatar"
                     />
                 </template>
                 <n-thing>
@@ -18,7 +18,10 @@
                             style="cursor: pointer"
                             @click="onClickToDetail(1)"
                         >
-                            Rails 7 正式发布（译文）
+                            <n-text depth="3">
+                                [{{item?.topic?.title}}]
+                            </n-text>
+                            {{ item?.title }}
                         </n-text>
                     </template>
 
@@ -27,7 +30,9 @@
                     </template>
 
                     <template #footer>
-                        <n-text depth="3"> Tertiary Depth </n-text>
+                        <n-text depth="3"> {{ item?.author?.name }} </n-text>
+                        <n-text depth="1"> 发布于 </n-text>
+                        <n-text depth="3"> {{ item?.created_at }} </n-text>
                         <n-text depth="1"> 最后由 </n-text>
                         <n-text depth="3"> Tertiary Depth </n-text>
                         <n-text depth="1"> 回复于 </n-text>

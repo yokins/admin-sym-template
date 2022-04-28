@@ -4,19 +4,28 @@
             <n-space vertical>
                 <n-input-group>
                     <n-select
-                        :style="{ width: '30%' }"
+                        v-model:value="form.topic_id"
+                        :style="{ width: '20%' }"
                         :options="topics"
                         placeholder="请选择文章类型"
                     />
                     <n-input
-                        :style="{ width: '70%' }"
+                        v-model:value="form.title"
+                        :style="{ width: '80%' }"
                         placeholder="请输入文章标题"
                     />
                 </n-input-group>
 
-                <WangEditor></WangEditor>
+                <WangEditor v-model="form.content"></WangEditor>
 
-                <n-button type="primary" block> 立即发布 </n-button>
+                <n-button
+                    type="primary"
+                    block
+                    :loading="loading"
+                    @click="submit"
+                >
+                    立即发布
+                </n-button>
             </n-space>
         </n-card>
     </main-page>
@@ -34,14 +43,13 @@ export default {
 
     data() {
         return {
-            selectOptions: [
-                {
-                    label: "option",
-                    value: "option"
-                }
-            ],
-
-            topics: []
+            topics: [],
+            loading: false,
+            form: {
+                topic_id: undefined,
+                title: "",
+                content: ""
+            }
         };
     },
 
@@ -62,6 +70,39 @@ export default {
                 label: item.title,
                 value: item.id
             }));
+        },
+        /**
+         * @description:
+         * @param {*}
+         * @return {*}
+         */
+        async submit() {
+            this.loading = true;
+            const isPass = this.check_params();
+            if (!isPass) {
+                window.$message.error("提交失败，请重试");
+                this.loading = false;
+                return false;
+            }
+            const res = await this.$api.articles.save(this.form).catch(() => {
+                this.loading = false;
+            });
+            if (!res) return false;
+            window.$message.success("提交成功");
+            this.loading = false;
+        },
+        /**
+         * @description:
+         * @param {*}
+         * @return {*}
+         */
+        check_params() {
+            const keys = Object.keys(this.form);
+            const isPass = keys.reduce((result, item) => {
+                if (result && !this.form[item]) return false;
+                return result;
+            }, true);
+            return isPass;
         }
     }
 };

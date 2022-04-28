@@ -1,6 +1,6 @@
 <template>
     <main-page>
-        <template #header v-if="$route.name == 'articlesList'">
+        <template #header v-if="$route.name == 'articles.list'">
             <n-layout-header>
                 <div class="articles_kinds">
                     <n-menu

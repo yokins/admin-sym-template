@@ -23,20 +23,37 @@ import { Editor, Toolbar } from "@wangeditor/editor-for-vue";
 export default {
     components: { Editor, Toolbar },
 
+    props: {
+        modelValue: {}
+    },
+
+    emits: ["update:modelValue"],
+
     data() {
         return {
             editor: null,
-            mode: 'default',
+            mode: "default",
             toolbarConfig: {},
             editorConfig: {
                 placeholder: "请输入内容......"
             },
-            content: ""
+            // content: ""
         };
     },
 
+    computed: {
+        content: {
+            get() {
+                return this.modelValue;
+            },
+            set(value) {
+                this.$emit("update:modelValue", value);
+            }
+        }
+    },
+
     beforeUnmount() {
-        if(this.editor == null) return
+        if (this.editor == null) return;
         this.editor.destroy();
     },
 
