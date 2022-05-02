@@ -11,7 +11,12 @@
                     <header-search></header-search>
                     <header-notice></header-notice>
                     <header-add></header-add>
-                    <header-avatar></header-avatar>
+                    <template v-if="false">
+                        <header-avatar></header-avatar>
+                    </template>
+                    <template else>
+                        <header-buttons></header-buttons>
+                    </template>
                 </n-space>
             </div>
         </div>
@@ -23,6 +28,7 @@ import HeaderAvatar from "./Header/Avatar.vue";
 import HeaderSearch from "./Header/Search.vue";
 import HeaderNotice from "./Header/Notice.vue";
 import HeaderAdd from "./Header/Add.vue";
+import HeaderButtons from './Header/Buttons.vue';
 import { useThemeVars } from "naive-ui";
 
 export default {
@@ -30,7 +36,8 @@ export default {
         HeaderAvatar,
         HeaderSearch,
         HeaderNotice,
-        HeaderAdd
+        HeaderAdd,
+        HeaderButtons
     },
 
     data() {
